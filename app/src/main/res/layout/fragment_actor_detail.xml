@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.detail.actor.ActorDetailFragment"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/flexible.example.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:title="TITLE"
+            app:expandedTitleMarginBottom="94dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.Inverse"
+            app:contentScrim="?colorPrimary">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/placeholder_person"
+                android:tint="@color/movie_detail_image_tint"
+                android:scaleType="centerCrop"
+                tools:ignore="UseAppTint"
+                android:contentDescription="@string/actor_image" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/flexible.example.toolbar"
+                style="@style/ToolBarWithNavigationBack"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@null"
+                app:layout_collapseMode="pin"
+                app:menu="@menu/movie_detail_top_bar"
+                />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:behavior_overlapTop="78dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/flexible.example.cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPaddingBottom="16dp"
+                app:contentPaddingLeft="16dp"
+                app:contentPaddingRight="16dp"
+                app:cardCornerRadius="4dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardElevation="4dp"
+                android:layout_margin="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/detail_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:layout_gravity="center"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/department_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/department"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_text"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="3dp"
+                                android:paddingEnd="5dp"
+                                android:paddingStart="5dp"
+                                android:background="@color/primary_color"
+                                android:textColor="@color/white_black"
+                                android:drawablePadding="5dp"
+                                app:drawableLeftCompat="@drawable/ic_baseline_work_24"
+                                app:drawableTint="@color/white_black"
+                                />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/popularity_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/department_card"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginBottom="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/popularity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/empty_text"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="3dp"
+                                android:paddingEnd="5dp"
+                                android:paddingStart="5dp"
+                                android:background="@color/primary_color"
+                                android:textColor="@color/white_black"
+                                android:drawablePadding="5dp"
+                                app:drawableLeftCompat="@drawable/ic_baseline_star_rate_20"
+                                app:drawableTint="@color/white_black"
+                                />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/gender_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="6dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/popularity_card"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginBottom="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/gender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="3dp"
+                                android:paddingEnd="5dp"
+                                android:paddingStart="5dp"
+                                android:background="@color/primary_color"
+                                android:textColor="@color/white_black"
+                                app:drawableLeftCompat="@drawable/ic_baseline_female_24"
+                                app:drawableTint="@color/white_black"
+                                />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        >
+
+                        <com.facebook.shimmer.ShimmerFrameLayout
+                            android:id="@+id/detail_shimmer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:foregroundGravity="center">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                >
+
+                                <TextView
+                                    android:layout_width="50dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginStart="5dp"
+                                    android:background="@drawable/share_rounded_corner_with_border"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:padding="4dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="50dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginStart="5dp"
+                                    android:background="@drawable/share_rounded_corner_with_border"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:padding="4dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="50dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginStart="5dp"
+                                    android:background="@drawable/share_rounded_corner_with_border"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:padding="4dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="50dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_marginStart="5dp"
+                                    android:background="@drawable/share_rounded_corner_with_border"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp"
+                                    android:gravity="center"
+                                    android:padding="4dp"
+                                    />
+
+                            </LinearLayout>
+
+                        </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        android:textAppearance="@style/TextAppearance.Header"
+                        style="@style/TextComponent.ItemRow"
+                        android:textColor="@color/detail_title"
+                        app:drawableStartCompat="@drawable/ic_baseline_person_24"
+                        app:drawableTint="@color/detail_title"
+                        android:drawablePadding="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/actor_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/birthday"
+                        android:textAppearance="@style/TextAppearance.Header"
+                        style="@style/TextComponent.ItemRow"
+                        android:textColor="@color/detail_title"
+                        app:drawableStartCompat="@drawable/ic_baseline_cake_24"
+                        app:drawableTint="@color/detail_title"
+                        android:drawablePadding="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/actor_birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_results"
+                        android:visibility="gone"
+                        />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/actor_birthday_shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foregroundGravity="center">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/share_rounded_corner_with_border"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            />
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/place_of_birth"
+                        android:textAppearance="@style/TextAppearance.Header"
+                        style="@style/TextComponent.ItemRow"
+                        android:textColor="@color/detail_title"
+                        app:drawableStartCompat="@drawable/ic_baseline_location_on_24"
+                        app:drawableTint="@color/detail_title"
+                        android:drawablePadding="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/actor_place_of_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_results"
+                        android:visibility="gone"
+                        />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/actor_place_of_birth_shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foregroundGravity="center">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/share_rounded_corner_with_border"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            />
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/biography"
+                        android:textAppearance="@style/TextAppearance.Header"
+                        style="@style/TextComponent.ItemRow"
+                        android:textColor="@color/detail_title"
+                        app:drawableStartCompat="@drawable/ic_baseline_person_24"
+                        app:drawableTint="@color/detail_title"
+                        android:drawablePadding="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/actor_biography"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_results"
+                        android:visibility="gone"
+                        />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/actor_biography_shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foregroundGravity="center">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/share_rounded_corner_with_border"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            />
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/flexible.example.cardview2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPaddingBottom="16dp"
+                app:contentPaddingLeft="16dp"
+                app:contentPaddingRight="16dp"
+                app:cardCornerRadius="4dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardElevation="4dp"
+                android:layout_margin="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/starring_movies"
+                        android:textAppearance="@style/TextAppearance.Header"
+                        style="@style/TextComponent.ItemRow"
+                        android:textColor="@color/detail_title"
+                        app:drawableStartCompat="@drawable/ic_baseline_movie_24"
+                        app:drawableTint="@color/detail_title"
+                        android:drawablePadding="5dp"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/movie_RV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:scrollbars="horizontal"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/starring_movies_text"
+                        android:layout_marginTop="3dp"
+                        />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/movie_similar_movies_shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foregroundGravity="center">
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <include layout="@layout/item_actor_shimmer"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:gravity="center"
+                                android:layout_gravity="fill" />
+                            <include layout="@layout/item_actor_shimmer"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:gravity="center"
+                                android:layout_gravity="fill" />
+                            <include layout="@layout/item_actor_shimmer"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:gravity="center"
+                                android:layout_gravity="fill" />
+
+
+                        </GridLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

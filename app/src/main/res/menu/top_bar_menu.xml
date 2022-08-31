@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="android.widget.SearchView"
+        android:title="Search"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/linear"
+        android:title="Linear"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/two_span"
+        android:title="2 Span"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/three_span"
+        android:title="3 Span"
+        app:showAsAction="never" />
+
+</menu>

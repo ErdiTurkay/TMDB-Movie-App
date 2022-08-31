@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/actor_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        >
+
+        <ImageView
+            android:id="@+id/actor_image"
+            android:layout_width="110dp"
+            android:layout_height="190dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/placeholder_movie"
+            android:contentDescription="@string/actor_image" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/add_favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_favorite_24"
+            android:background="@null"
+            android:contentDescription="@string/add_favorite_button" />
+
+
+        <View
+            android:id="@+id/border_view"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/actor_image"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/primary_color"/>
+
+        <TextView
+            android:id="@+id/actor_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/border_view"
+            app:layout_constraintEnd_toStartOf="@id/add_favorite"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/add_favorite"
+            android:text="@string/title"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/department_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/border_view"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:id="@+id/department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_text"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:background="@color/primary_color"
+                android:textColor="@color/white_black"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_baseline_work_24"
+                app:drawableTint="@color/white_black"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/popularity_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/department_card"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:id="@+id/popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_text"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:background="@color/primary_color"
+                android:textColor="@color/white_black"
+                android:drawablePadding="5dp"
+                app:drawableLeftCompat="@drawable/ic_baseline_star_rate_20"
+                app:drawableTint="@color/white_black"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/gender_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/popularity_card"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:background="@color/primary_color"
+                android:textColor="@color/white_black"
+                app:drawableLeftCompat="@drawable/ic_baseline_female_24"
+                app:drawableTint="@color/white_black"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

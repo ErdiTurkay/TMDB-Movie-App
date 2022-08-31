@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="HOME"/>
+    <item
+        android:id="@+id/popularFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_offline_bolt_24"
+        android:title="POPULAR"/>
+    <item
+        android:id="@+id/topRatedFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_star_rate_24"
+        android:title="TOP RATED"/>
+    <item
+        android:id="@+id/upcomingFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_access_time_filled_24"
+        android:title="UPCOMING"/>
+    <item
+        android:id="@+id/favoriteFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="FAVORITE"/>
+</menu>
