@@ -2,7 +2,6 @@ package com.example.challenge4.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.challenge4.ImageSliderAPIService
 import com.example.challenge4.MovieAPIService
 import com.example.challenge4.common.Constant
 import com.example.challenge4.database.MovieDatabase
@@ -40,16 +39,6 @@ object AppModule {
             .build()
 
         return retrofit.create(MovieAPIService::class.java)
-    }
-
-    @Provides
-    fun provideImageSliderAPI(): ImageSliderAPIService {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(Constant.IMAGE_SLIDER_API_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        return retrofit.create(ImageSliderAPIService::class.java)
     }
 
     @Provides

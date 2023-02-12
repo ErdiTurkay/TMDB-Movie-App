@@ -3,8 +3,6 @@ package com.example.challenge4.feature.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.denzcoskun.imageslider.models.SlideModel
-import com.example.challenge4.ImageSliderAPIService
 import com.example.challenge4.MovieAPIService
 import com.example.challenge4.database.MovieDatabase
 import com.example.challenge4.model.Movie
@@ -16,12 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private var imageSliderApi: ImageSliderAPIService,
     var api: MovieAPIService,
     var db: MovieDatabase.AppDatabase
 ) : ViewModel() {
-
-    val imageSliderLiveData = MutableLiveData<List<SlideModel>>()
     val popularMoviesLiveData = MutableLiveData<List<Movie>?>()
     val topRatedMoviesLiveData = MutableLiveData<List<Movie>?>()
     val upcomingMoviesLiveData = MutableLiveData<List<Movie>?>()
@@ -31,41 +26,12 @@ class HomeViewModel @Inject constructor(
         getPopularMovies()
         getUpcomingMovies()
         getTopRatedMovies()
-        getImageSlider()
     }
 
     fun initialize() {
         getPopularMovies()
         getUpcomingMovies()
         getTopRatedMovies()
-        getImageSlider()
-    }
-
-    private fun getImageSlider() {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                // Image sliders are pulled from the API.
-                val response = imageSliderApi.getImageSlider()
-
-                // SlideModel list is created.
-                val slideModelList: ArrayList<SlideModel> = arrayListOf()
-
-                /* For each ImageSlider object from the API,
-                the SlideModel has been created and added to the list. */
-                for (item in response) {
-                    slideModelList.add(SlideModel(item.imageURL, item.title))
-                }
-
-                // SlideModel list posted to LiveData.
-                imageSliderLiveData.postValue(slideModelList)
-
-                // If no error occurred in the try code block, the isOnline variable is set to true.
-                isOnline.postValue(true)
-            } catch (e: IOException) {
-                // isOnline LiveData is set to false when internet error occurs.
-                isOnline.postValue(false)
-            }
-        }
     }
 
     private fun getPopularMovies() {

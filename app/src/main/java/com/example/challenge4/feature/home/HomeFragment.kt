@@ -37,7 +37,6 @@ class HomeFragment : Fragment(), MovieClickListener {
 
         setSwipeRefresh()
         setToolBar()
-        setImageSlider()
         setCardViewTitles()
         setRVs()
         setButtonClicks()
@@ -60,15 +59,6 @@ class HomeFragment : Fragment(), MovieClickListener {
             show()
             mainActivity.showLayoutMenu(false)
             title = resources.getString(R.string.app_name)
-        }
-    }
-
-    private fun setImageSlider() {
-        // It feeds the ImageSlider with data from the API.
-        viewModel.imageSliderLiveData.observe(viewLifecycleOwner) {
-            binding.imageSlider.setImageList(it, ScaleTypes.CENTER_CROP)
-            binding.shimmerImageSlider.hide()
-            binding.imageSlider.show()
         }
     }
 

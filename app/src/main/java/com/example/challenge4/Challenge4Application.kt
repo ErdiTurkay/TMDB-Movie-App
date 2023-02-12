@@ -82,8 +82,3 @@ interface MovieAPIService {
         @Path("person_id") personID: Int
     ): StarringMovieURL
 }
-
-interface ImageSliderAPIService {
-    @GET("5604")
-    suspend fun getImageSlider(): List<ImageSlider>
-}
